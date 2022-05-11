@@ -3,6 +3,7 @@ terraform {
     bucket  = "terraformstate-fawzihmouda"
     prefix  = "state"
   }
+  
 }
 
 provider "google" {
