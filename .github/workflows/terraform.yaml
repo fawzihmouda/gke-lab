@@ -4,18 +4,6 @@ on:
   push:
     paths:
         - infrastructure/*
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'     
-        required: true
-        default: 'warning' 
-        type: choice
-      tags:
-        description: 'Test scenario tags'
-        required: false 
-        type: boolea
-
 jobs:
   deploy-infrastructure:
     runs-on: ubuntu-latest
