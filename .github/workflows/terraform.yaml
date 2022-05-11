@@ -4,6 +4,13 @@ on:
   push:
     paths:
         - infrastructure/*
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning' 
+        type: choice
 
 jobs:
   deploy-infrastructure:
