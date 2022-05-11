@@ -1,0 +1,28 @@
+name: Workflow to deploy Terraform
+
+on:
+  push:
+    paths:
+        - infrastructure/*
+
+jobs:
+  deploy-infrastructure:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "./infrastructure/"
+    
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.4.0
+
+      - name: HashiCorp - Setup Terraform
+        uses: hashicorp/setup-terraform@v2.0.0
+
+      - name: Terraform init
+        run: terraform init
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+
